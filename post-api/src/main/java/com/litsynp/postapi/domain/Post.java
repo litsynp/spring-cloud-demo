@@ -1,32 +1,35 @@
-package com.litsynp.memberapi.domain;
+package com.litsynp.postapi.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString
-public class Member {
+public class Post {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String email;
+    private String memberInfo;
 
-    private String password;
+    private String title;
+
+    @Lob
+    private String content;
 
     @Builder
-    public Member(Long id, String email, String password) {
+    public Post(Long id, String memberInfo, String title, String content) {
         this.id = id;
-        this.email = email;
-        this.password = password;
+        this.memberInfo = memberInfo;
+        this.title = title;
+        this.content = content;
     }
 }

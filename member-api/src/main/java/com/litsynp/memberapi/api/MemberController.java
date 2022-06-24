@@ -16,11 +16,13 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping("/{id}")
-    public Member getMember(@PathVariable Long id) {
-        return Member.builder()
+    public String getMember(@PathVariable Long id) {
+        Member member = Member.builder()
                 .id(id)
                 .email("litsynp" + id + "@example.com")
                 .password("1234")
                 .build();
+
+        return member.toString();
     }
 }
